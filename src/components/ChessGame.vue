@@ -166,7 +166,7 @@ export default {
           if (game.value.turn() === 'b' && !game.value.isGameOver()) {
             setTimeout(() => {
               makeBotMove();
-            }, 700);
+            }, 1500);
           }
         }
       } catch (error) {
@@ -279,8 +279,7 @@ export default {
 };
 </script>
 
-
-<style scoped>
+<style>
 .chess-container {
   display: flex;
   gap: 30px;
@@ -304,11 +303,12 @@ export default {
 .square {
   width: 100%;
   height: 100%;
-  border: 1px solid #333;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 1px solid #333;
+  transition: background-color 1.4s ease; /* Плавный переход цвета клетки */
 }
 
 .white {
@@ -320,15 +320,15 @@ export default {
 }
 
 .selected {
-  background-color: rgba(255, 255, 0, 0.4) !important;
+  background-color: rgba(255, 255, 0, 0.5) !important;
 }
 
 .valid-move {
-  background-color: rgba(0, 255, 0, 0.3) !important;
+  background-color: rgba(0, 255, 0, 0.4) !important;
 }
 
 .last-move {
-  background-color: rgba(255, 165, 0, 0.3) !important;
+  background-color: rgba(255, 165, 0, 0.4) !important;
 }
 
 .square img {
@@ -336,11 +336,10 @@ export default {
   height: 80%;
   object-fit: contain;
   pointer-events: none;
-  transition: transform 0.3s ease;
-  /* Добавляем плавное движение */
+  transition: transform 0.3s ease; /* Плавная анимация фигур */
 }
 
-
+/* Остальной код без изменений */
 .game-info {
   color: #333;
   max-width: 300px;
